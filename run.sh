@@ -2,7 +2,7 @@
 
 function create {
     i=$1
-    argocd app create -f - << EOF
+    oc apply -f - << EOF
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
@@ -15,7 +15,7 @@ spec:
   destination:
     namespace: default
     server: https://kubernetes.default.svc
-  project: default
+  project: openshift-gitops
   source:
     kustomize:
       namePrefix: app${i}
@@ -27,7 +27,7 @@ spec:
 EOF
 }
 
-for i in {1..200}
+for i in {1..500}
 do
    create $i &
 done
