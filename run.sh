@@ -15,7 +15,7 @@ spec:
   destination:
     namespace: default
     server: https://kubernetes.default.svc
-  project: openshift-gitops
+  project: default
   source:
     kustomize:
       namePrefix: app${i}
@@ -27,7 +27,7 @@ spec:
 EOF
 }
 
-for i in {1..500}
+for i in {1..5}
 do
    create $i &
 done
