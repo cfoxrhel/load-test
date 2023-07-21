@@ -27,9 +27,10 @@ spec:
 EOF
 }
 
-for i in {1..5}
+for i in {1..50}
 do
    create $i &
+   sleep 10
 done
 
 wait
