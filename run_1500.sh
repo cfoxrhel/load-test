@@ -30,7 +30,7 @@ EOF
 for i in {1..1500}
 do
    create $i &
-   sleep 5
+   sleep 10
 done
 
 wait
